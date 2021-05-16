@@ -1,0 +1,16 @@
+applicationName: 'SampleApp'  # [REQUIRED] The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+deploymentGroupName: 'SampleDeploymentGroup' # The name of the deployment group.
+revision: #  The type and location of the revision to deploy.
+  revisionType: AppSpecContent  # The type of application revision. Valid values are: S3, GitHub, String, AppSpecContent.
+  appSpecContent: #  The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment.
+    content: '
+# Place holders (like <something>) are replaced during execution of deploy.sh
+version: 0.0
+Resources:
+  - <lambda_name>:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: "<lambda_name>"
+        Alias: "<lambda_alias>"
+        CurrentVersion: "<current_version>"
+        TargetVersion: "<target_version>"'  #  The YAML-formatted or JSON-formatted revision string.
