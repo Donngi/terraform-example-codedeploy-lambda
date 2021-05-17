@@ -6,7 +6,7 @@ data "archive_file" "sample" {
 
 resource "aws_lambda_function" "sample" {
   filename      = data.archive_file.sample.output_path
-  function_name = "SampleLambdaWithCodeDeploy7"
+  function_name = "SampleLambdaWithCodeDeploy"
   role          = aws_iam_role.lambda_sample.arn
   handler       = "main.lambda_handler"
 
@@ -24,7 +24,7 @@ resource "aws_lambda_function" "sample" {
     }
   }
 
-  timeout = 31
+  timeout = 29
   publish = true
 }
 
