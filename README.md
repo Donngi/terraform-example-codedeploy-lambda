@@ -17,7 +17,7 @@ In this step, you can choose deployment method below.
 ## Code structure
 ```
 terraform
-├── envs
+├── env
 │   └── example
 │       ├── aws.tf
 │       └── main.tf
